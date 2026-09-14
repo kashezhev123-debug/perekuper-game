@@ -1,258 +1,259 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b0b10">
-<title>ПЕРЕКУП: Автоимперия</title>
+<meta name="theme-color" content="#09070f">
+<title>ПЕРЕКУП: Автоимперия v4.0</title>
 <style>
-:root{--bg:#08090d;--card:#12141b;--card2:#181b24;--text:#f4f5f7;--muted:#9298a7;--accent:#8b5cf6;--accent2:#a78bfa;--green:#35d07f;--red:#ff5c6c;--yellow:#ffc857;border-radius:18px}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -10%,#241449 0,#08090d 42%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
-button{font:inherit;color:inherit;border:0;cursor:pointer}.app{max-width:760px;margin:auto;padding:18px 14px 90px}
-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.logo{font-weight:900;letter-spacing:.4px}.logo span{color:var(--accent2)}
-.icon{width:42px;height:42px;border-radius:14px;background:#171923;border:1px solid #292d3a}
-.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.stat{background:rgba(18,20,27,.9);border:1px solid #252936;border-radius:15px;padding:10px}.stat b{display:block;font-size:15px}.stat small{color:var(--muted)}
-.tabs{display:flex;gap:7px;overflow:auto;padding:12px 0;position:sticky;top:0;z-index:4;background:rgba(8,9,13,.88);backdrop-filter:blur(12px)}.tab{white-space:nowrap;background:#151720;border:1px solid #272b37;padding:10px 13px;border-radius:13px;color:#b8bdc9}.tab.active{background:#6d3fd4;border-color:#8b5cf6;color:#fff}
-.view{display:none}.view.active{display:block}.hero{padding:18px;border-radius:22px;background:linear-gradient(145deg,#171125,#11131b);border:1px solid #302348;margin-bottom:12px}.hero h1{margin:0 0 5px;font-size:26px}.hero p{margin:0;color:var(--muted);line-height:1.45}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{background:var(--card);border:1px solid #252936;border-radius:19px;padding:13px;box-shadow:0 8px 25px #0002}.carpic{height:108px;border-radius:14px;background:linear-gradient(135deg,#242735,#0f1015);display:flex;align-items:center;justify-content:center;font-size:48px;margin-bottom:10px}.card h3{margin:0 0 4px;font-size:17px}.muted{color:var(--muted)}.price{font-size:19px;font-weight:800;margin:7px 0}.tag{display:inline-block;padding:4px 7px;border-radius:8px;background:#252031;color:#cfc1ff;font-size:11px;margin:2px 2px 6px 0}.btn{width:100%;padding:11px 12px;border-radius:12px;background:#242734;border:1px solid #343847;margin-top:8px;font-weight:700}.btn.primary{background:linear-gradient(135deg,#7c3aed,#9b62ff);border-color:#a476ff}.btn.green{background:#143c2a;border-color:#246b48;color:#72f1ac}.btn.red{background:#401b22;border-color:#73303a;color:#ff9aa4}.btn:disabled{opacity:.45;cursor:not-allowed}
-.section-title{display:flex;justify-content:space-between;align-items:center;margin:16px 2px 9px}.section-title h2{font-size:19px;margin:0}.empty{padding:30px;text-align:center;color:var(--muted);border:1px dashed #303442;border-radius:18px}
-.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.progress{height:8px;background:#252833;border-radius:20px;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,#7c3aed,#b18aff);border-radius:20px}
-.modal{position:fixed;inset:0;background:#0009;display:none;align-items:flex-end;justify-content:center;z-index:20}.modal.open{display:flex}.sheet{width:min(760px,100%);max-height:90vh;overflow:auto;background:#101219;border:1px solid #303442;border-radius:24px 24px 0 0;padding:18px}.sheet h2{margin-top:0}.close{float:right;background:#242733;width:38px;height:38px;border-radius:12px}.choice{padding:12px;background:#181b24;border:1px solid #2b2f3b;border-radius:14px;margin:8px 0}.choice b{display:block}.choice small{color:var(--muted)}
-.toast{position:fixed;left:50%;bottom:78px;transform:translateX(-50%) translateY(20px);opacity:0;background:#20232d;border:1px solid #3a3f4d;padding:11px 15px;border-radius:14px;z-index:30;transition:.25s;max-width:90%;text-align:center}.toast.show{opacity:1;transform:translateX(-50%)}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#0d0e13ee;backdrop-filter:blur(14px);border-top:1px solid #252936;padding:8px max(10px,calc((100% - 740px)/2));display:grid;grid-template-columns:repeat(4,1fr);z-index:10}.bottom button{background:transparent;color:#858b99;padding:7px 3px;font-size:11px}.bottom button.active{color:#bda1ff}.bottom .ico{display:block;font-size:20px;margin-bottom:2px}
-@media(min-width:620px){.grid{grid-template-columns:repeat(3,1fr)}.modal{align-items:center}.sheet{border-radius:24px}}
+*{box-sizing:border-box}body{margin:0;background:#08060d;color:#eee;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select{font:inherit}button{border:0;border-radius:12px;padding:11px 14px;background:#7c3cff;color:white;font-weight:700}
+button:disabled{opacity:.45} .app{max-width:900px;margin:auto;padding:12px 12px 88px}
+.top{position:sticky;top:0;z-index:5;background:rgba(8,6,13,.94);backdrop-filter:blur(12px);padding:8px 0 12px}
+.logo{font-size:24px;font-weight:900;color:#b678ff}.sub{color:#8e889a;font-size:12px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:10px}.stat{background:#12101a;border:1px solid #282233;border-radius:12px;padding:8px;text-align:center}.stat b{display:block;color:#fff}.stat span{font-size:10px;color:#91899e}
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:10;background:#100d16;border-top:1px solid #292232;display:flex;justify-content:center;gap:4px;padding:8px 5px calc(8px + env(safe-area-inset-bottom))}
+.nav button{background:transparent;color:#9b94a5;padding:8px 9px;font-size:11px}.nav button.active{color:#c78cff;background:#21152e}
+.screen{display:none}.screen.active{display:block}.card{background:linear-gradient(145deg,#15111e,#0f0d15);border:1px solid #292232;border-radius:16px;padding:14px;margin:10px 0;box-shadow:0 8px 25px #0004}
+h2{margin:5px 0 12px;font-size:20px}.muted{color:#9891a2}.good{color:#64e291}.bad{color:#ff6d83}.gold{color:#ffc857}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.cars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.car{border:1px solid #2b2535;border-radius:14px;padding:11px;background:#121019}.car h3{margin:0 0 4px;font-size:15px}.tag{display:inline-block;background:#241a30;color:#c99aff;border-radius:7px;padding:3px 6px;font-size:10px;margin:2px}
+.row{display:flex;justify-content:space-between;gap:8px;align-items:center}.actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.actions button{font-size:11px;padding:9px}
+.progress{height:8px;background:#27222d;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:#9b4dff}.price{font-size:18px;font-weight:900}.small{font-size:12px}
+.tabs{display:flex;gap:6px;overflow:auto;margin-bottom:8px}.tabs button{white-space:nowrap;background:#18131f}.tabs button.sel{background:#7c3cff}
+.modal{position:fixed;inset:0;background:#000b;z-index:20;display:none;align-items:flex-end}.modal.open{display:flex}.sheet{width:100%;max-height:88vh;overflow:auto;background:#100d16;border-radius:22px 22px 0 0;padding:16px}.sheet h2{margin-top:0}
+.log{font-size:12px;line-height:1.55}.log div{border-bottom:1px solid #211d27;padding:5px 0}
+input,select{width:100%;background:#17131d;border:1px solid #322a3b;color:white;border-radius:10px;padding:10px}
+.toast{position:fixed;top:15px;left:50%;transform:translateX(-50%);background:#21152d;border:1px solid #6d3fa0;padding:10px 15px;border-radius:12px;z-index:30;display:none}.toast.show{display:block}
+@media(min-width:700px){.cars{grid-template-columns:repeat(3,1fr)}.nav{position:sticky;bottom:auto;margin-top:15px;border:1px solid #292232;border-radius:14px}.app{padding-bottom:20px}.stats{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
+<div id="toast" class="toast"></div>
 <div class="app">
-<header><div class="logo">ПЕРЕКУП <span>•</span> АВТОИМПЕРИЯ</div><button class="icon" id="saveBtn">💾</button></header>
-<div class="stats">
- <div class="stat"><small>Баланс</small><b id="money">300 000 ₽</b></div>
- <div class="stat"><small>Репутация</small><b id="rep">0 ★</b></div>
- <div class="stat"><small>Уровень</small><b id="level">1</b></div>
-</div>
+<header class="top">
+  <div class="logo">ПЕРЕКУП <span class="sub">АВТОИМПЕРИЯ v4.0</span></div>
+  <div class="stats">
+    <div class="stat"><b id="money">300 000 ₽</b><span>Деньги</span></div>
+    <div class="stat"><b id="rep">0</b><span>Репутация</span></div>
+    <div class="stat"><b id="level">1</b><span>Уровень</span></div>
+    <div class="stat"><b id="carsCount">0</b><span>Авто</span></div>
+  </div>
+</header>
 
-<div class="tabs">
- <button class="tab active" data-view="market">Рынок</button>
- <button class="tab" data-view="garage">Гараж</button>
- <button class="tab" data-view="business">Бизнес</button>
- <button class="tab" data-view="profile">Профиль</button>
-</div>
-
-<section id="market" class="view active">
- <div class="hero"><h1>Охоться за выгодой</h1><p>Покупай машины ниже рынка, находи скрытые проблемы, ремонтируй и продавай дороже.</p></div>
- <div class="section-title"><h2>Свежие объявления</h2><button class="btn" style="width:auto;margin:0" id="refreshMarket">🔄 Обновить</button></div>
- <div class="grid" id="marketGrid"></div>
+<section id="market" class="screen active">
+<h2>🚗 Авторынок</h2>
+<div class="card"><div class="row"><div><b id="regionName">КБР</b><div class="muted small">Рынок региона</div></div><select id="filter"><option value="all">Все</option><option value="cheap">До 500к</option><option value="sport">Спорт</option><option value="premium">Премиум</option></select></div></div>
+<div id="marketCars" class="cars"></div>
 </section>
 
-<section id="garage" class="view">
- <div class="hero"><h1>Твой гараж</h1><p>Здесь стоят купленные автомобили. Подготовь их и выставь на продажу.</p></div>
- <div class="grid" id="garageGrid"></div>
+<section id="garage" class="screen">
+<h2>🔧 Гараж</h2><div id="garageCars"></div>
 </section>
 
-<section id="business" class="view">
- <div class="hero"><h1>Развивай империю</h1><p>Вкладывай прибыль в навыки и открывай новые возможности.</p></div>
- <div id="businessBox"></div>
+<section id="business" class="screen">
+<h2>🏢 Бизнес</h2>
+<div id="businessBox"></div>
+<div class="card"><h3>Сотрудники</h3><div id="employees"></div></div>
+<div class="card"><h3>💳 Финансы</h3><div class="actions"><button onclick="loan()">Взять кредит 500 000 ₽</button><button onclick="payLoan()">Погасить 100 000 ₽</button></div><div id="loanInfo" class="small muted"></div></div>
 </section>
 
-<section id="profile" class="view">
- <div class="hero"><h1>Профиль перекупа</h1><p id="rankText"></p></div>
- <div class="card">
-  <div class="row"><span>Опыт</span><b id="xpText"></b></div><div class="progress" style="margin-top:8px"><i id="xpBar"></i></div>
-  <div class="row" style="margin-top:15px"><span>Сделок</span><b id="deals"></b></div>
-  <div class="row" style="margin-top:10px"><span>Общая прибыль</span><b id="profit"></b></div>
-  <button class="btn red" id="resetBtn">Сбросить прогресс</button>
- </div>
+<section id="map" class="screen">
+<h2>🗺️ Регионы</h2><div class="card"><div class="muted small">Покупай дешевле в одном регионе и продавай дороже в другом. Переезд стоит денег.</div></div><div id="regions" class="grid"></div>
 </section>
-</div>
 
-<div class="bottom">
- <button class="active" data-view="market"><span class="ico">🚗</span>Рынок</button>
- <button data-view="garage"><span class="ico">🏠</span>Гараж</button>
- <button data-view="business"><span class="ico">💼</span>Бизнес</button>
- <button data-view="profile"><span class="ico">👤</span>Профиль</button>
-</div>
-
-<div class="modal" id="modal"><div class="sheet">
- <button class="close" id="closeModal">✕</button><div id="modalContent"></div>
+<section id="profile" class="screen">
+<h2>👤 Профиль</h2><div id="profileBox"></div>
+<div class="card"><h3>🏆 Достижения</h3><div id="achievements"></div></div>
+<div class="card"><h3>🛠 DEV MODE</h3><div class="actions">
+<button onclick="devMoney(100000)">+100к</button><button onclick="devMoney(1000000)">+1 млн</button><button onclick="devRep()">+100 REP</button><button onclick="devMax()">MAX</button>
 </div></div>
-<div class="toast" id="toast"></div>
+<div class="card"><button onclick="resetGame()" style="background:#a32d45">Сбросить сохранение</button></div>
+</section>
+
+<nav class="nav">
+<button class="active" data-screen="market">🚗<br>Рынок</button>
+<button data-screen="garage">🔧<br>Гараж</button>
+<button data-screen="business">🏢<br>Бизнес</button>
+<button data-screen="map">🗺️<br>Карта</button>
+<button data-screen="profile">👤<br>Профиль</button>
+</nav>
+</div>
+
+<div id="modal" class="modal"><div class="sheet"><div class="row"><h2 id="modalTitle"></h2><button onclick="closeModal()">✕</button></div><div id="modalBody"></div></div></div>
 
 <script>
 "use strict";
-const KEY="perekuper_autoimperiya_v3";
-const names=[
- ["Lada Priora","🚘",260000],["Lada Vesta","🚗",720000],["BMW 3 Series E46","🚙",610000],
- ["BMW 5 Series E60","🏎️",920000],["Mercedes C-Class W203","🚘",540000],["Toyota Camry XV40","🚗",820000],
- ["Volkswagen Passat B6","🚙",650000],["Audi A4 B7","🏎️",590000],["Kia Rio","🚗",700000],
- ["Hyundai Solaris","🚘",670000],["Ford Focus 2","🚙",510000],["Lexus IS250","🏎️",980000],
- ["Nissan Teana","🚘",590000],["Mazda 6 GH","🚗",730000],["Renault Logan","🚙",420000],
- ["VAZ 2110","🚘",180000],["VAZ 2107","🚗",150000],["Skoda Octavia A5","🚙",680000]
+const KEY="perekuper_v4_save";
+const catalog=[
+["Lada","Granta",2019,560000,"cheap"],["Lada","Vesta",2021,820000,"cheap"],["Lada","Niva Legend",2020,760000,"cheap"],
+["VAZ","2114",2008,260000,"cheap"],["VAZ","2110",2006,190000,"cheap"],["Kia","Rio",2018,980000,"cheap"],
+["Hyundai","Solaris",2019,1050000,"cheap"],["Volkswagen","Polo",2018,940000,"cheap"],["Toyota","Camry",2017,1850000,"premium"],
+["Toyota","Corolla",2016,1250000,"cheap"],["BMW","3 Series",2015,1550000,"premium"],["BMW","5 Series",2013,1450000,"premium"],
+["BMW","M5 E60",2008,3600000,"sport"],["Mercedes","C-Class",2016,2100000,"premium"],["Mercedes","E-Class",2015,2350000,"premium"],
+["Audi","A6",2016,1900000,"premium"],["Audi","RS6",2014,4100000,"sport"],["Lexus","ES",2017,2300000,"premium"],
+["Nissan","Qashqai",2018,1350000,"cheap"],["Nissan","GT-R",2012,6900000,"sport"],["Toyota","Supra",1998,5100000,"sport"],
+["Mazda","6",2018,1450000,"cheap"],["Mazda","RX-8",2007,900000,"sport"],["Honda","Civic",2016,1200000,"cheap"],
+["Honda","Fit",2018,850000,"cheap"],["Ford","Focus",2018,850000,"cheap"],["Skoda","Octavia",2019,1250000,"cheap"],
+["Kia","Stinger",2019,2350000,"sport"],["Genesis","G70",2020,2700000,"premium"],["Porsche","Cayenne",2016,3300000,"premium"],
+["Porsche","911",2012,6800000,"sport"],["Subaru","WRX STI",2016,2700000,"sport"],["Mitsubishi","Lancer Evo X",2010,2350000,"sport"],
+["Renault","Logan",2018,650000,"cheap"],["Chevrolet","Niva",2017,700000,"cheap"],["Jeep","Grand Cherokee",2015,2200000,"premium"],
+["Volvo","XC60",2017,2200000,"premium"],["Infiniti","Q50",2016,1900000,"premium"],["Tesla","Model 3",2020,2800000,"premium"],
+["Ford","Mustang",2016,2800000,"sport"],["Chevrolet","Camaro",2015,2900000,"sport"],["BMW","X5",2016,3000000,"premium"],
+["Mercedes","AMG GT",2016,7000000,"sport"],["Lexus","LX 570",2015,5200000,"premium"],["Toyota","Land Cruiser 200",2014,4300000,"premium"],
+["Volkswagen","Touareg",2015,2100000,"premium"],["Kia","K5",2021,1900000,"cheap"],["Hyundai","Tucson",2020,1800000,"cheap"],
+["Geely","Monjaro",2023,3200000,"premium"],["Chery","Tiggo 7 Pro",2022,1900000,"cheap"]
 ];
-const colors=["Чёрный","Белый","Серый","Синий","Красный","Серебристый"];
-let S=load();
+const regions=[
+["КБР",1.00,0],["КЧР",.97,25000],["Ставрополь",1.04,45000],["Краснодар",1.09,65000],["Ростов",1.07,85000],["Москва",1.18,130000],["Санкт-Петербург",1.14,155000]
+];
+let state=load();
+let market=[];
+
 function load(){
- try{const x=JSON.parse(localStorage.getItem(KEY));if(x)return x}catch(e){}
- return {money:300000,rep:0,xp:0,deals:0,profit:0,garage:[],business:{mechanic:0,negotiation:0,lot:0},market:[]};
+ try{let x=JSON.parse(localStorage.getItem(KEY));if(x)return x}catch(e){}
+ return {money:300000,rep:0,xp:0,level:1,region:0,garage:[],business:{garage:1,service:0,lot:0},employees:{mechanic:0,diagnostician:0,sales:0},loan:0,ach:[],log:["Игра началась. У тебя 300 000 ₽. Найди первую выгодную машину."]};
 }
-function save(){localStorage.setItem(KEY,JSON.stringify(S));}
-function fmt(n){return Math.round(n).toLocaleString("ru-RU")+" ₽"}
-function rnd(a,b){return Math.floor(Math.random()*(b-a+1))+a}
-function pick(a){return a[Math.floor(Math.random()*a.length)]}
-function level(){return Math.floor(S.xp/100)+1}
-function need(){return level()*100}
-function toast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),2200)}
-function addXP(n){S.xp+=n; if(Math.floor((S.xp-n)/100)<Math.floor(S.xp/100))toast("🎉 Новый уровень!");}
-function makeCar(){
- const base=pick(names), market=Math.round(base[2]*(.9+rnd(0,22)/100));
- const discount=rnd(8,28)/100, buy=Math.round(market*(1-discount));
- const condition={engine:rnd(45,98),body:rnd(45,100),gearbox:rnd(45,98),electronics:rnd(45,100)};
- const hidden=Object.values(condition).filter(v=>v<65).length;
- return {id:Date.now()+Math.random(),name:base[0],emoji:base[1],base:base[2],market,buy,color:pick(colors),km:rnd(55,310)*1000,condition,hidden,inspected:false,repaired:false,spent:0,listed:false};
+function save(){localStorage.setItem(KEY,JSON.stringify(state));render()}
+function money(n){return Math.round(n).toLocaleString("ru-RU")+" ₽"}
+function toast(t){let e=document.getElementById("toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),1800)}
+function xp(n){state.xp+=n;let need=state.level*250;if(state.xp>=need){state.xp-=need;state.level++;state.rep+=10;toast("🎉 Новый уровень: "+state.level)}}
+function addLog(t){state.log.unshift(new Date().toLocaleTimeString("ru-RU",{hour:"2-digit",minute:"2-digit"})+" — "+t);state.log=state.log.slice(0,30)}
+function rand(a,b){return Math.floor(Math.random()*(b-a+1))+a}
+function makeCar(i){
+ let c=catalog[i], reg=regions[state.region][1], marketPrice=Math.round(c[3]*reg*(.93+Math.random()*.14));
+ let discount=.68+Math.random()*.18, buy=Math.round(marketPrice*discount);
+ let mileage=rand(25000,260000), condition=rand(55,94), accident=Math.random()<.28, hidden=Math.random()<.34;
+ return {id:Date.now()+Math.random(),brand:c[0],model:c[1],year:c[2],base:c[3],market:marketPrice,buy, mileage,condition,accident,hidden, inspected:false,repairs:{engine:0,gearbox:0,suspension:0,body:0,electrics:0,brakes:0,interior:0,tires:0},listed:false};
 }
-function ensureMarket(){if(!S.market.length)for(let i=0;i<9;i++)S.market.push(makeCar())}
+function refreshMarket(){
+ market=[];let used=new Set();
+ while(market.length<12){let i=rand(0,catalog.length-1);if(!used.has(i)){used.add(i);market.push(makeCar(i))}}
+ renderMarket();
+}
+function totalRepair(c){
+ let base=(100-c.condition)*rand(4500,7000);
+ if(c.hidden)base+=rand(35000,95000);
+ if(c.accident)base+=rand(20000,65000);
+ base*=Math.max(.6,1-state.employees.mechanic*.08);
+ return Math.round(base);
+}
 function render(){
- ensureMarket();
- document.getElementById("money").textContent=fmt(S.money);
- document.getElementById("rep").textContent=S.rep+" ★";
- document.getElementById("level").textContent=level();
- renderMarket();renderGarage();renderBusiness();renderProfile();save();
+ document.getElementById("money").textContent=money(state.money);
+ document.getElementById("rep").textContent=state.rep;
+ document.getElementById("level").textContent=state.level;
+ document.getElementById("carsCount").textContent=state.garage.length;
+ document.getElementById("regionName").textContent=regions[state.region][0];
+ renderMarket();renderGarage();renderBusiness();renderMap();renderProfile();
 }
 function renderMarket(){
- const g=document.getElementById("marketGrid");
- g.innerHTML=S.market.map(c=>`
- <div class="card"><div class="carpic">${c.emoji}</div>
- <h3>${c.name}</h3><div class="muted">${c.color} · ${Math.round(c.km/1000)} тыс. км</div>
- <div><span class="tag">Рынок ~ ${fmt(c.market)}</span><span class="tag">−${Math.round((1-c.buy/c.market)*100)}%</span></div>
- <div class="price">${fmt(c.buy)}</div>
- <button class="btn primary" data-action="inspect" data-id="${c.id}">🔍 Проверить авто</button>
- </div>`).join("");
+ let f=document.getElementById("filter").value, arr=market.filter(c=>f==="all"||f==="cheap"&&c.base<1500000||f==="sport"&&catalog.find(x=>x[0]===c.brand&&x[1]===c.model)?.[4]==="sport"||f==="premium"&&catalog.find(x=>x[0]===c.brand&&x[1]===c.model)?.[4]==="premium");
+ document.getElementById("marketCars").innerHTML=arr.map(c=>`
+ <div class="car"><h3>${c.brand} ${c.model}</h3><div class="small">${c.year} • ${c.mileage.toLocaleString()} км</div>
+ <span class="tag">${c.condition}% состояние</span>${c.accident?'<span class="tag bad">ДТП</span>':''}
+ <div class="price">${money(c.buy)}</div><div class="muted small">Рынок: ${money(c.market)}</div>
+ <div class="actions"><button onclick="inspect(${c.id})">🔍 Осмотреть</button><button onclick="buyCar(${c.id})">Купить</button></div></div>`).join("")||"<div class='card'>Нет машин по фильтру.</div>";
 }
-function conditionText(v){return v>=85?"Отлично":v>=70?"Хорошо":v>=55?"Уставшее":"Проблемное"}
-function renderGarage(){
- const g=document.getElementById("garageGrid");
- if(!S.garage.length){g.innerHTML='<div class="empty" style="grid-column:1/-1">Гараж пуст. Найди первую выгодную машину на рынке.</div>';return}
- g.innerHTML=S.garage.map(c=>`
- <div class="card"><div class="carpic">${c.emoji}</div><h3>${c.name}</h3>
- <div class="muted">${c.color} · ${Math.round(c.km/1000)} тыс. км</div>
- <div class="price">Вложено: ${fmt(c.buy+c.spent)}</div>
- ${c.inspected?`<div class="muted">Двигатель: ${conditionText(c.condition.engine)} · Кузов: ${conditionText(c.condition.body)}<br>КПП: ${conditionText(c.condition.gearbox)} · Электрика: ${conditionText(c.condition.electronics)}</div>`:`<div class="muted">Диагностика не проведена</div>`}
- <button class="btn" data-action="garageInspect" data-id="${c.id}">🔧 Диагностика</button>
- <button class="btn green" data-action="sell" data-id="${c.id}">💰 Продать</button>
- </div>`).join("");
+function inspect(id){
+ let c=market.find(x=>x.id==id);if(!c)return;
+ c.inspected=true;
+ let defects=[];
+ if(c.condition<75)defects.push("состояние кузова/узлов ниже среднего");
+ if(c.accident)defects.push("следы ДТП");
+ if(c.hidden)defects.push("⚠️ скрытый дорогой дефект");
+ if(!defects.length)defects.push("серьёзных проблем не найдено");
+ let fee=Math.max(2000,Math.round(6000-state.employees.diagnostician*1000));
+ if(state.money<fee)return toast("Не хватает на диагностику");
+ state.money-=fee;addLog("Диагностика "+c.brand+" "+c.model+" за "+money(fee));save();
+ openModal("🔍 Диагностика",`<div class="card"><h3>${c.brand} ${c.model}</h3><p>Двигатель: ${c.hidden?"есть риск":"норма"}</p><p>КПП: ${c.condition<65?"требует внимания":"норма"}</p><p>Кузов: ${c.accident?"ремонтировался":"без серьёзных ДТП"}</p><p>Обнаружено: <b>${defects.join(", ")}</b></p></div>`);
 }
-function renderBusiness(){
- const b=S.business;
- document.getElementById("businessBox").innerHTML=`
- <div class="card"><div class="row"><b>🔧 Механик</b><b>ур. ${b.mechanic}</b></div><p class="muted">Снижает стоимость ремонта и повышает эффективность.</p><button class="btn primary" data-up="mechanic">Улучшить — ${fmt(50000*(b.mechanic+1))}</button></div>
- <div class="card" style="margin-top:10px"><div class="row"><b>🤝 Переговоры</b><b>ур. ${b.negotiation}</b></div><p class="muted">Повышает шанс сбить цену при покупке.</p><button class="btn primary" data-up="negotiation">Улучшить — ${fmt(45000*(b.negotiation+1))}</button></div>
- <div class="card" style="margin-top:10px"><div class="row"><b>🏪 Площадка</b><b>ур. ${b.lot}</b></div><p class="muted">Повышает цену продажи.</p><button class="btn primary" data-up="lot">Улучшить — ${fmt(70000*(b.lot+1))}</button></div>`;
-}
-function renderProfile(){
- const l=level(), rem=S.xp%100;
- document.getElementById("rankText").textContent=`Уровень ${l}. ${l<3?"Начинающий перекуп":l<6?"Опытный перекуп":l<10?"Автобизнесмен":"Автомагнат"}.`;
- document.getElementById("xpText").textContent=`${rem}/100 XP`;
- document.getElementById("xpBar").style.width=rem+"%";
- document.getElementById("deals").textContent=S.deals;
- document.getElementById("profit").textContent=fmt(S.profit);
-}
-function openModal(c){
- const m=document.getElementById("modal"), mc=document.getElementById("modalContent");
- const n=S.business.negotiation;
- mc.innerHTML=`<h2>${c.emoji} ${c.name}</h2>
- <p class="muted">${c.color} · ${Math.round(c.km/1000)} тыс. км</p>
- <div class="choice"><b>Цена продавца: ${fmt(c.buy)}</b><small>Рынок: примерно ${fmt(c.market)}</small></div>
- ${c.inspected?`<div class="choice"><b>Диагностика</b><small>Двигатель: ${conditionText(c.condition.engine)} (${c.condition.engine}/100)<br>Кузов: ${conditionText(c.condition.body)} (${c.condition.body}/100)<br>КПП: ${conditionText(c.condition.gearbox)} (${c.condition.gearbox}/100)<br>Электрика: ${conditionText(c.condition.electronics)} (${c.condition.electronics}/100)<br>Скрытых проблем: ${c.hidden}</small></div>`:
- `<div class="choice"><b>🔍 Полная диагностика — 15 000 ₽</b><small>Откроет реальные состояния узлов.</small></div>`}
- <button class="btn primary" data-action="buy" data-id="${c.id}">🤝 Попробовать купить</button>
- <button class="btn" data-action="diagnose" data-id="${c.id}" ${c.inspected?"disabled":""}>🔍 Диагностировать за 15 000 ₽</button>`;
- m.classList.add("open");
-}
-function closeModal(){document.getElementById("modal").classList.remove("open")}
-function inspectMarket(id){
- const c=S.market.find(x=>String(x.id)===String(id));if(c)openModal(c)
-}
-function diagnose(id){
- const c=S.market.find(x=>String(x.id)===String(id));if(!c)return;
- if(c.inspected){openModal(c);return}
- if(S.money<15000){toast("Не хватает денег на диагностику");return}
- S.money-=15000;c.inspected=true;addXP(8);toast("Диагностика завершена");render();openModal(c);
-}
-function buy(id){
- const c=S.market.find(x=>String(x.id)===String(id));if(!c)return;
+function buyCar(id){
+ let c=market.find(x=>x.id==id);if(!c)return;
+ if(state.money<c.buy)return toast("Не хватает денег");
  let price=c.buy;
- const chance=Math.min(.88,.45+S.business.negotiation*.08+(S.rep*.01));
- if(Math.random()<chance){const cut=rnd(4,12)+S.business.negotiation*2;price=Math.round(price*(1-cut/100));toast("🤝 Торг удался: −"+cut+"%")}
- else toast("😤 Продавец не уступил");
- if(S.money<price){toast("Не хватает денег");return}
- S.money-=price;c.buy=price;c.spent=0;c.inspected=c.inspected||false;
- S.garage.push(c);S.market=S.market.filter(x=>x!==c);addXP(25);S.rep+=1;S.deals++;
- closeModal();render();
+ state.money-=price;state.garage.push(c);market=market.filter(x=>x.id!=id);
+ addLog(`Куплен ${c.brand} ${c.model} за ${money(price)}`);xp(80);checkAch();save();toast("Авто в гараже");
 }
-function garageDiagnose(id){
- const c=S.garage.find(x=>String(x.id)===String(id));if(!c)return;
- if(c.inspected){openGarageModal(c);return}
- if(S.money<15000){toast("Не хватает денег");return}
- S.money-=15000;c.inspected=true;addXP(8);render();openGarageModal(c)
-}
-function openGarageModal(c){
- const mc=document.getElementById("modalContent");
- mc.innerHTML=`<h2>${c.emoji} ${c.name}</h2>
- <div class="choice"><b>Состояние</b><small>Двигатель: ${conditionText(c.condition.engine)} (${c.condition.engine}/100)<br>Kузов: ${conditionText(c.condition.body)} (${c.condition.body}/100)<br>КПП: ${conditionText(c.condition.gearbox)} (${c.condition.gearbox}/100)<br>Электрика: ${conditionText(c.condition.electronics)} (${c.condition.electronics}/100)</small></div>
- <button class="btn primary" data-action="repair" data-id="${c.id}">🔧 Ремонтировать проблемные узлы</button>
- <button class="btn green" data-action="sell" data-id="${c.id}">💰 Продать сейчас</button>`;
- document.getElementById("modal").classList.add("open");
+function renderGarage(){
+ let e=document.getElementById("garageCars");
+ if(!state.garage.length){e.innerHTML='<div class="card">Гараж пуст. Купи машину на рынке.</div>';return}
+ e.innerHTML='<div class="cars">'+state.garage.map(c=>`<div class="car"><h3>${c.brand} ${c.model}</h3><div class="small">${c.year} • ${c.mileage.toLocaleString()} км</div><span class="tag">Сост. ${c.condition}%</span>${c.accident?'<span class="tag bad">ДТП</span>':''}
+ <div class="muted small">Рынок: ${money(c.market)}</div><div class="actions"><button onclick="repair(${c.id})">🔧 Ремонт</button><button onclick="negotiate(${c.id})">💬 Продать</button></div></div>`).join("")+'</div>';
 }
 function repair(id){
- const c=S.garage.find(x=>String(x.id)===String(id));if(!c)return;
- if(!c.inspected){toast("Сначала проведи диагностику");return}
- const bad=Object.values(c.condition).filter(v=>v<85).length;
- if(!bad){toast("Авто уже в отличном состоянии");return}
- const discount=Math.max(.55,1-S.business.mechanic*.08);
- const cost=Math.round((bad*18000+rnd(5000,15000))*discount);
- if(S.money<cost){toast("Не хватает денег на ремонт");return}
- S.money-=cost;c.spent+=cost;c.repaired=true;Object.keys(c.condition).forEach(k=>{if(c.condition[k]<90)c.condition[k]=Math.min(96,c.condition[k]+rnd(10,25))});
- addXP(20);toast("🔧 Ремонт выполнен за "+fmt(cost));render();openGarageModal(c)
+ let c=state.garage.find(x=>x.id==id);let cost=totalRepair(c);
+ openModal("🔧 Сервис",`<p>Предварительная стоимость ремонта: <b>${money(cost)}</b></p><p class="muted small">Механик снижает стоимость на 8% за уровень.</p><div class="actions"><button onclick="doRepair(${id},${cost})">Починить</button></div>`);
 }
-function sell(id){
- const c=S.garage.find(x=>String(x.id)===String(id));if(!c)return;
- const conditionAvg=Object.values(c.condition).reduce((a,b)=>a+b,0)/4;
- let mult=.83+conditionAvg/100*.24+S.business.lot*.04+(S.rep*.005);
- if(c.repaired)mult+=.05;
- const market=Math.round(c.market*(.92+rnd(0,18)/100));
- const offer=Math.round(market*mult);
- const invested=c.buy+c.spent, profit=offer-invested;
- const mc=document.getElementById("modalContent");
- mc.innerHTML=`<h2>💰 Продажа ${c.name}</h2>
- <div class="choice"><b>Предложение покупателя: ${fmt(offer)}</b><small>Вложено: ${fmt(invested)} · ${profit>=0?"Прибыль":"Убыток"}: ${fmt(Math.abs(profit))}</small></div>
- <button class="btn green" data-action="confirmSell" data-id="${c.id}">Продать за ${fmt(offer)}</button>
- <button class="btn" id="cancelSale">Отказаться</button>`;
- document.getElementById("modal").classList.add("open");
- document.getElementById("cancelSale").onclick=closeModal;
- document.querySelector('[data-action="confirmSell"]').dataset.offer=offer;
+function doRepair(id,cost){
+ let c=state.garage.find(x=>x.id==id);if(!c)return;
+ if(state.money<cost)return toast("Не хватает денег");
+ state.money-=cost;c.condition=Math.min(100,c.condition+rand(18,38));c.hidden=false;
+ addLog(`Ремонт ${c.brand} ${c.model}: ${money(cost)}`);xp(50);closeModal();save();toast("Авто отремонтировано");
 }
-function confirmSell(id,offer){
- const c=S.garage.find(x=>String(x.id)===String(id));if(!c)return;
- offer=Number(offer);const profit=offer-(c.buy+c.spent);
- S.money+=offer;S.profit+=profit;S.garage=S.garage.filter(x=>x!==c);S.rep+=profit>=0?2:0;addXP(40);toast(profit>=0?"🔥 Сделка закрыта в плюс!":"Сделка закрыта с убытком");closeModal();render()
+function negotiate(id){
+ let c=state.garage.find(x=>x.id==id);let quality=(c.condition/100)*(c.accident?.93:1);let demand=(.94+Math.random()*.16)*(1+state.rep/1000);
+ let target=Math.round(c.market*quality*demand*(1+state.business.lot*.025));
+ let buyer=["частник","перекуп","семья","таксист","коллекционер"][rand(0,4)];
+ let start=Math.round(target*(.82+Math.random()*.08));
+ openModal("💬 Переговоры",`<div class="card"><b>Покупатель: ${buyer}</b><p>«Готов дать <b>${money(start)}</b>.»</p><input id="offer" type="number" value="${target}"><div class="actions"><button onclick="sell(${id})">Согласиться</button><button onclick="counter(${id},${target})">Предложить цену</button></div><p class="muted small">Репутация и состояние влияют на итоговую цену.</p></div>`);
 }
-function upgrade(type){
- const costs={mechanic:50000*(S.business.mechanic+1),negotiation:45000*(S.business.negotiation+1),lot:70000*(S.business.lot+1)};
- const cost=costs[type];if(S.money<cost){toast("Не хватает денег");return}
- S.money-=cost;S.business[type]++;addXP(15);toast("💼 Бизнес улучшен");render()
+function counter(id,target){
+ let offer=Number(document.getElementById("offer").value);let c=state.garage.find(x=>x.id==id);if(!c)return;
+ let chance=offer<=target*1.08 ? .9 : offer<=target*1.2 ? .55 : .18;
+ if(Math.random()<chance){openModal("🤝 Сделка",`Покупатель согласен на <b>${money(offer)}</b>.<div class="actions"><button onclick="sell(${id},${offer})">Продать</button></div>`)}
+ else {let counter=Math.round(target*(.88+Math.random()*.08));openModal("😬 Торг",`«Дорого. Максимум <b>${money(counter)}</b>.»<div class="actions"><button onclick="sell(${id},${counter})">Принять</button><button onclick="closeModal()">Отказаться</button></div>`)}
 }
-document.addEventListener("click",e=>{
- const view=e.target.closest("[data-view]");if(view){document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".tab,.bottom button").forEach(x=>x.classList.remove("active"));document.getElementById(view.dataset.view).classList.add("active");document.querySelectorAll(`[data-view="${view.dataset.view}"]`).forEach(x=>x.classList.add("active"));return}
- const a=e.target.closest("[data-action]");if(a){const id=a.dataset.id,act=a.dataset.action;
-  if(act==="inspect")inspectMarket(id);if(act==="diagnose")diagnose(id);if(act==="buy")buy(id);if(act==="garageInspect")garageDiagnose(id);if(act==="repair")repair(id);if(act==="sell")sell(id);if(act==="confirmSell")confirmSell(id,a.dataset.offer);return}
- const up=e.target.closest("[data-up]");if(up)upgrade(up.dataset.up);
-});
-document.getElementById("closeModal").onclick=closeModal;
-document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal()});
-document.getElementById("refreshMarket").onclick=()=>{S.market=[];ensureMarket();toast("Новые объявления загружены");render()};
-document.getElementById("saveBtn").onclick=()=>{save();toast("💾 Прогресс сохранён")};
-document.getElementById("resetBtn").onclick=()=>{if(confirm("Точно сбросить весь прогресс?")){localStorage.removeItem(KEY);S=load();render();toast("Прогресс сброшен")}};
-render();
+function sell(id,custom){
+ let c=state.garage.find(x=>x.id==id);if(!c)return;
+ let price=custom||Math.round(c.market*(c.condition/100)*(1+state.rep/1200)*(1+state.business.lot*.025));
+ state.money+=price;state.garage=state.garage.filter(x=>x.id!=id);state.rep+=rand(2,7);xp(120);
+ addLog(`Продан ${c.brand} ${c.model} за ${money(price)}`);checkAch();closeModal();save();toast("Сделка закрыта +"+money(price));
+}
+function renderBusiness(){
+ let b=state.business;
+ document.getElementById("businessBox").innerHTML=`
+ <div class="grid">
+ <div class="card"><b>🔧 Гараж ур. ${b.garage}</b><p class="small muted">Вместимость: ${3+b.garage*2} авто</p><button onclick="upgrade('garage')">Улучшить за ${money(120000*b.garage)}</button></div>
+ <div class="card"><b>🏭 СТО ур. ${b.service}</b><p class="small muted">Снижает стоимость ремонта.</p><button onclick="upgrade('service')">Улучшить за ${money(180000*(b.service+1))}</button></div>
+ <div class="card"><b>🏪 Автосалон ур. ${b.lot}</b><p class="small muted">Повышает цену продажи.</p><button onclick="upgrade('lot')">Улучшить за ${money(250000*(b.lot+1))}</button></div>
+ </div>`;
+ document.getElementById("employees").innerHTML=`
+ <div class="small">🔧 Механик: ${state.employees.mechanic} <button onclick="hire('mechanic')">Нанять 120к</button></div>
+ <div class="small">🔍 Диагност: ${state.employees.diagnostician} <button onclick="hire('diagnostician')">Нанять 100к</button></div>
+ <div class="small">💼 Продажник: ${state.employees.sales} <button onclick="hire('sales')">Нанять 150к</button></div>`;
+ document.getElementById("loanInfo").textContent="Долг: "+money(state.loan);
+}
+function upgrade(k){
+ let cost=k==="garage"?120000*state.business.garage:k==="service"?180000*(state.business.service+1):250000*(state.business.lot+1);
+ if(state.money<cost)return toast("Не хватает денег");
+ state.money-=cost;state.business[k]++;addLog("Улучшен бизнес: "+k);xp(150);save();toast("Бизнес улучшен");
+}
+function hire(k){let cost=k==="mechanic"?120000:k==="diagnostician"?100000:150000;if(state.money<cost)return toast("Не хватает денег");state.money-=cost;state.employees[k]++;xp(100);save();toast("Сотрудник нанят")}
+function loan(){if(state.loan>0)return toast("Сначала погаси текущий кредит");state.money+=500000;state.loan=575000;addLog("Взят кредит 500 000 ₽");save();toast("Кредит получен")}
+function payLoan(){let p=Math.min(100000,state.loan);if(!p)return toast("Долга нет");if(state.money<p)return toast("Не хватает денег");state.money-=p;state.loan-=p;save();toast("Внесено 100 000 ₽")}
+function renderMap(){
+ document.getElementById("regions").innerHTML=regions.map((r,i)=>`<div class="card"><b>${r[0]}</b><p class="small">Цены: x${r[1].toFixed(2)}</p><p class="small muted">Переезд: ${money(r[2])}</p><button ${i===state.region?"disabled":""} onclick="travel(${i})">${i===state.region?"Здесь":"Поехать"}</button></div>`).join("");
+}
+function travel(i){let cost=regions[i][2];if(state.money<cost)return toast("Не хватает на переезд");state.money-=cost;state.region=i;market=[];addLog("Переезд в "+regions[i][0]+" за "+money(cost));refreshMarket();save();toast("Новый регион: "+regions[i][0])}
+function renderProfile(){
+ let need=state.level*250;
+ document.getElementById("profileBox").innerHTML=`<div class="card"><h3>Уровень ${state.level}</h3><div class="progress"><i style="width:${Math.min(100,state.xp/need*100)}%"></i></div><p class="small">${state.xp}/${need} XP</p><p>Репутация: <b>${state.rep}</b></p><p>Капитал: <b>${money(state.money)}</b></p></div><div class="card"><h3>📜 История</h3><div class="log">${state.log.map(x=>`<div>${x}</div>`).join("")}</div></div>`;
+ let all=[["first","Первая машина","Купить первое авто"],["sale","Первая продажа","Продать авто"],["million","Миллионер","Иметь 1 000 000 ₽"],["rep","Авторитет","100 репутации"],["five","Парк","Иметь 5 авто"],["level","Профи","Достичь 5 уровня"]];
+ document.getElementById("achievements").innerHTML=all.map(a=>`<div class="small">${state.ach.includes(a[0])?"🏆":"🔒"} <b>${a[1]}</b> — ${a[2]}</div>`).join("");
+}
+function checkAch(){
+ let checks=[["first",state.garage.length>0],["sale",state.rep>0],["million",state.money>=1000000],["rep",state.rep>=100],["five",state.garage.length>=5],["level",state.level>=5]];
+ checks.forEach(([id,ok])=>{if(ok&&!state.ach.includes(id)){state.ach.push(id);toast("🏆 Достижение: "+id)}})
+}
+function devMoney(n){state.money+=n;addLog("DEV: +"+money(n));save();toast("DEV: деньги добавлены")}
+function devRep(){state.rep+=100;xp(500);save();toast("DEV: +100 REP")}
+function devMax(){state.money=999999999;state.rep=9999;state.level=50;state.business={garage:10,service:10,lot:10};state.employees={mechanic:10,diagnostician:10,sales:10};save();toast("DEV: MAX")}
+function openModal(title,body){document.getElementById("modalTitle").textContent=title;document.getElementById("modalBody").innerHTML=body;document.getElementById("modal").classList.add("open")}
+function closeModal(){document.getElementById("modal").classList.remove("open")}
+function resetGame(){if(confirm("Сбросить всю игру?")){localStorage.removeItem(KEY);location.reload()}}
+document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));document.getElementById(b.dataset.screen).classList.add("active");render()}));
+document.getElementById("filter").addEventListener("change",renderMarket);
+if(!market.length)refreshMarket();else render();
 </script>
 </body>
 </html>
